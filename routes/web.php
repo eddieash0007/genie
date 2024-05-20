@@ -28,10 +28,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/registrations', [BackendController::class, 'registrationIndex'])->name('admin.registrations');
     Route::get('/registrations/edit/{id}', [BackendController::class, 'edit'])->name('admin.registration.edit');
     Route::put('/registrations/edit/{id}', [BackendController::class, 'update'])->name('admin.registration.update');
+    Route::get('/registrations/search', [BackendController::class, 'registrationSearch'])->name('admin.registration.search');
 
     Route::get('/users', [BackendController::class, 'userIndex'])->name('admin.users');
     Route::get('/user/destroy/{id}', [BackendController::class, 'destroy'])->name('admin.user.destroy');
     Route::get('/user/password-reset/{id}', [BackendController::class, 'PasswordReset'])->name('admin.user.password.reset');
+ 
+    Route::get('/user/search', [BackendController::class, 'userSearch'])->name('admin.user.search');
+
 });
 
 require __DIR__.'/auth.php';

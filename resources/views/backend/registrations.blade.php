@@ -22,20 +22,12 @@
     <div class="card">
         <div class="card-header pb-0">
             <div class="card-actions float-end">
-                <input type="text" class="form-control" placeholder="Input">
-                {{-- <div class="dropdown position-relative">
-                        <a href="#" data-bs-toggle="dropdown" data-bs-display="static">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal align-middle"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                    </div> --}}
+                <form class="d-flex" role="search" action="{{route('admin.registration.search')}}" method="GET">
+                    <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </form>
             </div>
-            <h5 class="card-title mb-0">Orders</h5>
+            
         </div>
         <div class="card-body">
             <div id="datatables-orders_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
@@ -47,22 +39,14 @@
                 </div>
                 <div class="row dt-row">
                     <div class="col-sm-12">
-                        <table id="datatables-orders"
-                            class="table table-responsive table-striped dataTable no-footer dtr-inline" width="100%"
-                            aria-describedby="datatables-orders_info" style="width: 100%;">
+                        <table class="table table-striped table-hover" width="100%"
+                            style="width: 100%;">
                             <thead>
                                 <tr>
-                                    <th class="sorting sorting_asc" tabindex="0" aria-controls="datatables-orders"
-                                        rowspan="1" colspan="1" style="width: 49px;" aria-sort="ascending"
-                                        aria-label="#: activate to sort column descending">Staff ID</th>
-                                    <th class="sorting" tabindex="0" aria-contr ols="datatables-orders" rowspan="1"
-                                        colspan="1" style="width: 80px;"
-                                        aria-label="Billing Name: activate to sort column ascending">Name</th>
-                                    <th class="sorting" tabindex="0" aria-controls="datatables-orders" rowspan="1"
-                                        colspan="1" style="width: 95px;"
-                                        aria-label="Date: activate to sort column ascending">Unit</th>
-                                    <th class="sorting_disabled" rowspan="1" colspan="1" style="width: 121px;"
-                                        aria-label="Actions">Actions</th>
+                                    <th style="width: 20%;">Staff ID</th>
+                                    <th style="width: 30%;">Name</th>
+                                    <th style="width: 30%;">Unit</th>
+                                    <th style="width: 20%;">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>

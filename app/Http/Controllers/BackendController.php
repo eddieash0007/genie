@@ -96,4 +96,18 @@ class BackendController extends Controller
         $user->delete();
         return redirect()->back()->with('success', 'User deleted successfully');
     }
+
+    public function userSearch(Request $request)
+    {
+        $query = $request->input('query');
+        $users = User::where('name', 'LIKE', "%{$query}%")->paginate(10);
+        return view('backend.userResults', compact('users', 'query'));
+    }
+
+    public function registrationSearch(Request $request)
+    {
+        $query = $request->input('query');
+        $registrations = Registration::where('first_name', 'LIKE', "%{$query}%")->orWhere('last_name', 'LIKE', "%{$query}%")->paginate(10);
+        return view('backend.registrationResults', compact('registrations', 'query'));
+    }
 }
