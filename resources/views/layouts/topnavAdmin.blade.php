@@ -18,7 +18,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user align-middle me-2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> <span class="text-dark">{{ Auth::user()->name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1"
+                    <a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="align-middle me-1"
                             data-feather="user"></i> Profile</a>  
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item"

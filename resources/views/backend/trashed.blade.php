@@ -9,10 +9,9 @@
 @endsection
 
 @section('content')
-
 <style>.row{margin-bottom: 1rem;}</style>
 
-<h1 class="h3 mb-3">Registrations</h1>
+<h1 class="h3 mb-3"><strong>Trashed</strong> Registrations</h1>
 
 
 <div class="container-fluid p-0">
@@ -22,7 +21,7 @@
     <div class="card">
         <div class="card-header pb-0">
             <div class="card-actions float-end">
-                <form class="d-flex" role="search" action="{{route('admin.registration.search')}}" method="GET">
+                <form class="d-flex" role="search" action="{{route('admin.registration.trash.search')}}" method="GET">
                     <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-primary" type="submit">Search</button>
                 </form>
@@ -56,12 +55,13 @@
                                         <td>{{$registration->first_name}} {{$registration->last_name}}</td>
                                         <td>{{$registration->unit}}</td>
                                         <td>
-                                            <button type="button" data-bs-toggle="modal" data-bs-target="#registration-{{$registration->id}}" class="btn btn-warning btn-sm">View</button>
-                                            <a href="{{route('admin.registration.edit', ['id'=>$registration->id])}}" class="btn btn-primary btn-sm">Edit</a>
-                                            <a href="{{route('admin.registration.trash', ['id'=>$registration->id])}}" class="btn btn-danger btn-sm">Trash</a>
+                                            <a href="{{route('admin.registration.trash.restore', ['id'=>$registration->id])}}" class="btn btn-warning btn-sm">Restore</a>
+                                            <button type="button" data-bs-toggle="modal" data-bs-target="#registration-{{$registration->id}}" class="btn btn-danger btn-sm">Delete</button>
+
+                                            
                                         </td>
                                     </tr>
-                                    @include('backend.modals.view')
+                                    @include('backend.modals.deleteTrash')
                                 @endforeach
                                 
                             </tbody>
@@ -98,6 +98,4 @@
    
     
 </div>
-
-
 @endsection

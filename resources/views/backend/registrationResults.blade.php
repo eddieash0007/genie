@@ -27,7 +27,7 @@
     <div class="card">
         <div class="card-header pb-0">
             <div class="card-actions float-end">
-                <button onclick="window.location.href='{{route('admin.users')}}'" class="btn btn-secondary m-15"
+                <button onclick="window.location.href='{{route('admin.registrations')}}'" class="btn btn-secondary m-15"
                     type="submit">Clear Results</button>
             </div>
 

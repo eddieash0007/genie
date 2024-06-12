@@ -21,7 +21,7 @@ class RegistrationFactory extends Factory
             'other_name' => $this->faker->lastName,
             'staff_id' => $this->faker->unique()->text($maxNbChars = 10),
             'employment_status' => $this->faker->randomElement($array = array ('Permanent','Contract','National Service')),
-            'unit' => $this->faker->randomElement($array = array ('Loans','Account Opening / Maintenance','Quality Control','Monitoring and Support','Payments','Clearing','Account Opening / Maintenance / CSD','Loans / Account Openinng / Maintenance')),
+            'unit' => $this->faker->randomElement($array = array ('Loans','Account Opening / Maintenance','Quality Assurance','Monitoring and Support','Payments','Clearing','CSD - Account Opening / Maintenance','Custody Operations')),
             'dob' => $this->faker->date($format = 'Y-m-d', $max = 'now'),
             'grade' => $this->faker->randomElement($array = array ('4','5','6','7','8','9','10')),
             'contact' => $this->faker->phoneNumber,

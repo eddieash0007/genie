@@ -1,11 +1,14 @@
 <?php
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
 class CreateRegistrationsTable extends Migration
 {
+    use SoftDeletes;
     /**
      * Run the migrations.
      *
@@ -27,6 +30,7 @@ class CreateRegistrationsTable extends Migration
             $table->text('address');
             $table->string('c_p_name');
             $table->string('c_p_tel');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -39,5 +43,6 @@ class CreateRegistrationsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('registrations');
+        //Schema::dropSoftDeletes('registrations');
     }
 }

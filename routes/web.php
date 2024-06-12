@@ -24,11 +24,18 @@ Route::post('/store', [FrontEndController::class, 'store'])->name('store');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/dashboard', [BackendController::class, 'dashboardIndex'])->name('admin.dashboard');
+    Route::get('/profile', [BackendController::class, 'profile'])->name('admin.profile');
+    Route::post('/profile/{id}', [BackendController::class, 'selfPasswordReset'])->name('admin.profile.reset');
 
     Route::get('/registrations', [BackendController::class, 'registrationIndex'])->name('admin.registrations');
     Route::get('/registrations/edit/{id}', [BackendController::class, 'edit'])->name('admin.registration.edit');
     Route::put('/registrations/edit/{id}', [BackendController::class, 'update'])->name('admin.registration.update');
     Route::get('/registrations/search', [BackendController::class, 'registrationSearch'])->name('admin.registration.search');
+    Route::get('/registrations/trashed', [BackendController::class, 'trashed'])->name('admin.registrations.trashed');
+    Route::get('/registrations/trash/{id}', [BackendController::class, 'trash'])->name('admin.registration.trash');
+    Route::get('/registrations/trash/restore/{id}', [BackendController::class, 'restore'])->name('admin.registration.trash.restore');
+    Route::get('/registrations/trash/destroy/{id}', [BackendController::class, 'destroy'])->name('admin.registration.trash.destroy');
+    Route::get('/registrations/trashed/search', [BackendController::class, 'trashedSearch'])->name('admin.registration.trash.search');
 
     Route::get('/users', [BackendController::class, 'userIndex'])->name('admin.users');
     Route::get('/user/destroy/{id}', [BackendController::class, 'destroy'])->name('admin.user.destroy');

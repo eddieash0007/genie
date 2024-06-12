@@ -11,7 +11,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="card-title mb-0">Empty card</h5>
+                <h5 class="card-title mb-0">Employee Details</h5>
             </div>
             <div class="card-body">
             <form action="{{route('store')}}" method="post" enctype="multipart/form-data">
@@ -50,7 +50,7 @@
                     <div class="col-md-4 mb-2">
                         <div class="form-group">
                             <label for="" class="mb-2">Staff ID</label>
-                            <input type="text" class="form-control" name="staff_id">
+                            <input type="text" class="form-control" name="staff_id" style="text-transform: uppercase" pattern="^(FC|NSG|CS).*">
                             @error('staff_id')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -77,12 +77,12 @@
                                 <option selected="" value="">Select</option>
                                 <option value="Loans">Loans</option>
                                 <option value="Account Opening / Maintenance">Account Opening / Maintenance</option>
-                                <option value="Quality Control">Quality Control</option>
+                                <option value="Quality Assurance">Quality Assurance</option>
                                 <option value="Monitoring and Support">Monitoring and Support</option>
                                 <option value="Payments">Payments</option>
                                 <option value="Clearing">Clearing</option>
-                                <option value="Account Opening / Maintenance / CSD">Account Opening / Maintenance / CSD</option>
-                                <option value="Loans / Account Openinng / Maintenance">Loans / Account Openinng / Maintenance</option>
+                                <option value="CSD - Account Opening / Maintenance">CSD - Account Opening / Maintenance</option>
+                                <option value="Custody Operations">Custody Operations</option>
                             </select>
                             @error('unit')
                                     <p class="text-danger">{{ "The unit field is required" }}</p>
@@ -94,7 +94,7 @@
                     <div class="col-md-4 mb-2">
                         <div class="form-group">
                             <label for="" class="mb-2">DOB</label>
-                            <input type="text" class="form-control" name="dob">
+                            <input type="date" class="form-control" name="dob">
                             @error('dob')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -122,7 +122,11 @@
                     <div class="col-md-4 mb-2">
                         <div class="form-group">
                             <label for="" class="mb-2">Contact</label>
-                            <input type="text" class="form-control" name="contact">
+                            <input type="tel" class="form-control" placeholder="020-123-4567" id="phone" name="contact" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="{{old('contact')}}"
+                            style="input:invalid + span:after{content:'x'; color:#f00; padding-left:5px;} input:valid + span:after{content:'✓'; color:rgb(0, 255, 34); padding-left:5px;}"
+                            >
+                            <span style="color: #d1d1d1f1; margin-bottom:0%;">Format xxx-xxx-xxxx</span>
+                           
                             @error('contact')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -152,7 +156,12 @@
                     <div class="col-md-4 mb-2">
                         <div class="form-group">
                             <label for="" class="mb-2">Contact Person's Telephone</label>
-                            <input type="text" class="form-control" name="c_p_tel">
+                            
+                            <input type="tel" class="form-control" placeholder="020-123-4567" id="phone" name="c_p_tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" value="{{old('contact')}}"
+                            style="input:invalid + span:after{content:'x'; color:#f00; padding-left:5px;} input:valid + span:after{content:'✓'; color:rgb(0, 255, 34); padding-left:5px;}"
+                            >
+                            <span style="color: #d1d1d1f1; margin-bottom:0%;">Format xxx-xxx-xxxx</span>
+                           
                             @error('c_p_tel')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror

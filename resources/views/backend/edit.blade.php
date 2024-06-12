@@ -10,8 +10,7 @@
 
 @section('content')
 
-<h1 class="h3 mb-3"><strong>Edit :</strong> {{$registrations
-    ->staff_id}}</h1>
+<h1 class="h3 mb-3"><strong>Edit :</strong> {{$registrations->staff_id}}</h1>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -20,7 +19,7 @@
                 ->staff_id}}</h5>
             </div> --}}
             <div class="card-body">
-            <form action="{{route('admin.registration.update', $registrations->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('admin.registration.update', $registrations->id)}}" method="post">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -82,12 +81,12 @@
                             <select class="form-select mb-3" name="unit">
                                 <option value="Loans" {{ $registrations->unit == 'Loans' ? 'selected' : '' }}>Loans</option>
                                 <option value="Account Opening / Maintenance" {{ $registrations->unit == 'Account Opening / Maintenance' ? 'selected' : '' }}>Account Opening / Maintenance</option>
-                                <option value="Quality Control" {{ $registrations->unit == 'Quality Control' ? 'selected' : '' }}>Quality Control</option>
+                                <option value="Quality Assurance" {{ $registrations->unit == 'Quality Assurance' ? 'selected' : '' }}>Quality Assurance</option>
                                 <option value="Monitoring and Support" {{ $registrations->unit == 'Monitoring and Support' ? 'selected' : '' }}>Monitoring and Support</option>
                                 <option value="Payments" {{ $registrations->unit == 'Payments' ? 'selected' : '' }}>Payments</option>
                                 <option value="Clearing" {{ $registrations->unit == 'Clearing' ? 'selected' : '' }}>Clearing</option>
-                                <option value="Account Opening / Maintenance / CSD" {{ $registrations->unit == 'Account Opening / Maintenance / CSD' ? 'selected' : '' }}>Account Opening / Maintenance / CSD</option>
-                                <option value="Loans / Account Openinng / Maintenance" {{ $registrations->unit == 'Loans / Account Openinng / Maintenance' ? 'selected' : '' }}>Loans / Account Openinng / Maintenance</option>
+                                <option value="CSD - Account Opening / Maintenance" {{ $registrations->unit == 'CSD - Account Opening / Maintenance' ? 'selected' : '' }}>CSD - Account Opening / Maintenance</option>
+                                <option value="Custody Operations" {{ $registrations->unit == 'Custody Operations' ? 'selected' : '' }}>Custody Operations</option>
                             </select>
                             @error('unit')
                                     <p class="text-danger">{{ "The unit field is required" }}</p>

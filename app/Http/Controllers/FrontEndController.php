@@ -48,7 +48,7 @@ class FrontEndController extends Controller
         ]);
 
         // Redirect or return a response
-        return redirect('/')->with('status', 'Post created successfully!');
+        return redirect('/')->with('success', 'Details captured successfully!');
         
         
        
