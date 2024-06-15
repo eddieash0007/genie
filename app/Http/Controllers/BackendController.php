@@ -70,7 +70,8 @@ class BackendController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'other_name' => 'required',
-            'staff_id' => 'required',
+            // 'staff_id' => 'required|unique:registrations,staff_id',
+            // 'required|unique:registrations,staff_id,' .$id,
             'employment_status' => 'required',
             'unit' => 'required',
             'dob' => 'required',
@@ -81,12 +82,14 @@ class BackendController extends Controller
             'c_p_tel' => 'required',
         ]);
 
+       
+
         
         $registrations->update([
             'first_name' => $validatedData['first_name'],
             'last_name' => $validatedData['last_name'],
             'other_name' => $validatedData['other_name'],
-            'staff_id' => $validatedData['staff_id'],
+            // 'staff_id' => $validatedData['staff_id'],
             'employment_status' => $validatedData['employment_status'],
             'unit' => $validatedData['unit'],
             'dob' => $validatedData['dob'],
@@ -96,6 +99,9 @@ class BackendController extends Controller
             'c_p_name' => $validatedData['c_p_name'],
             'c_p_tel' => $validatedData['c_p_tel'],
         ]);
+
+        $registrations->staff_id = $request->staff_id;
+        $registrations->save();
 
         return redirect()->route('admin.registrations')->with('success', 'Details updated successfully.');
     }

@@ -5,7 +5,7 @@
 @section('nav')
     @include('layouts.topnav')
 @endsection
-
+@include('mainModal')
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -50,7 +50,7 @@
                     <div class="col-md-4 mb-2">
                         <div class="form-group">
                             <label for="" class="mb-2">Staff ID</label>
-                            <input type="text" class="form-control" name="staff_id" style="text-transform: uppercase" pattern="^(FC|NSG|CS).*">
+                            <input type="text" class="form-control" name="staff_id" style="text-transform: uppercase" {{-- pattern="^(FC|NSG|CS).*" --}}>
                             @error('staff_id')
                             <p class="text-danger">{{ $message }}</p>
                             @enderror
@@ -178,4 +178,12 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function(){
+        $("#notice").modal('show');
+    });
+</script>
+
 @endsection

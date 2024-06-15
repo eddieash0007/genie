@@ -19,7 +19,7 @@ class FrontEndController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'other_name' => 'required',
-            'staff_id' => 'required',
+            'staff_id' => 'required|unique:registrations,staff_id',
             'employment_status' => 'required',
             'unit' => 'required',
             'dob' => 'required',
