@@ -17,6 +17,8 @@
 
     <div class="card">
         <div class="card-header pb-0">
+            <button class="btn btn-secondary" type="submit" data-bs-toggle="modal"
+            data-bs-target="#add-user">Add User</button>
             <div class="card-actions float-end">
                     <form class="d-flex" role="search" action="{{route('admin.user.search')}}" method="GET">
                         <input class="form-control me-2" name="query" type="search" placeholder="Search" aria-label="Search">
@@ -79,6 +81,7 @@
                                     </tr>
                                     @include('backend.modals.deleteUser')
                                     @include('backend.modals.passwordReset')
+                                    @include('backend.modals.addUser')
                                     @endforeach
 
                                 </tbody>

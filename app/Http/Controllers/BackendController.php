@@ -53,6 +53,23 @@ class BackendController extends Controller
         return view('backend.users', compact('users'));
     }
 
+    public function userAdd(Request $request)
+    {
+        $this->validate($request,[
+            'name'=> 'required',
+            'email' => 'required|email|unique:users,email'
+        ]);
+
+        $user = new User;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make('Password123');
+        $user->save();
+
+        
+        return redirect()->route('admin.users')->with('success','The new users password is  Password123   ');;
+    }
+
     public function edit($id)
     {
         $registrations = Registration::find($id);
@@ -125,6 +142,13 @@ class BackendController extends Controller
         return view('backend.userResults', compact('users', 'query'));
     }
 
+    public function destroyUser($id)
+    {
+        $registration = user::find($id);
+        $registration->delete();
+        return redirect()->back()->with('success', 'user deleted permanently');
+    }
+
     public function registrationSearch(Request $request)
     {
         $query = $request->input('query');
@@ -175,7 +199,7 @@ class BackendController extends Controller
         return redirect()->back()->with('success', 'Records restored successfully');
     }
 
-    public function destroy($id)
+    public function destroyRegistration($id)
     {
         $registration = Registration::withTrashed()->find($id);
         $registration->forceDelete();

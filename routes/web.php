@@ -34,12 +34,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/registrations/trashed', [BackendController::class, 'trashed'])->name('admin.registrations.trashed');
     Route::get('/registrations/trash/{id}', [BackendController::class, 'trash'])->name('admin.registration.trash');
     Route::get('/registrations/trash/restore/{id}', [BackendController::class, 'restore'])->name('admin.registration.trash.restore');
-    Route::get('/registrations/trash/destroy/{id}', [BackendController::class, 'destroy'])->name('admin.registration.trash.destroy');
+    Route::get('/registrations/trash/destroy/{id}', [BackendController::class, 'destroyRegistration'])->name('admin.registration.trash.destroy');
     Route::get('/registrations/trashed/search', [BackendController::class, 'trashedSearch'])->name('admin.registration.trash.search');
 
     Route::get('/users', [BackendController::class, 'userIndex'])->name('admin.users');
-    Route::get('/user/destroy/{id}', [BackendController::class, 'destroy'])->name('admin.user.destroy');
+    Route::get('/user/destroy/{id}', [BackendController::class, 'destroyUser'])->name('admin.user.destroy');
     Route::get('/user/password-reset/{id}', [BackendController::class, 'PasswordReset'])->name('admin.user.password.reset');
+    Route::post('/user/create', [BackendController::class, 'userAdd'])->name('admin.user.create');
  
     Route::get('/user/search', [BackendController::class, 'userSearch'])->name('admin.user.search');
 

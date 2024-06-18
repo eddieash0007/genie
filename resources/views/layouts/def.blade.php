@@ -15,7 +15,7 @@
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
 
-    <title>Genie's Register</title>
+    <title>CPC Register</title>
 
     
     <link href="{{asset('backend/app.css')}}" rel="stylesheet">
